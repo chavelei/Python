@@ -1,0 +1,89 @@
+import time
+
+def intro():
+    print("Welcome to: Battle of New York - Can You Save The City?")
+    time.sleep(1)
+    print("\nYou are now in command of the Avengers Initiative.")
+    print("The Chitauri have invaded through a portal above Stark Tower.")
+    time.sleep(2)
+    print("\nYour decisions will determine if New York is saved... or destroyed.")
+    time.sleep(2)
+    start_game()
+
+def start_game():
+    destruction = 0
+    morale = 100
+
+    print("\nSituation 1: The Chitauri have started attacking midtown Manhattan.")
+    print("What do you do?")
+    print("A) Send Thor to destroy the portal generator.")
+    print("B) Tell Cap to lead the evacuation.")
+    print("C) Call for a nuclear strike.")
+
+    choice1 = input("Choose A, B, or C: ").strip().upper()
+
+    if choice1 == "A":
+        print("\nThor flies into action and begins attacking the generator")
+        destruction += 10
+        morale += 10
+    elif choice1 == "B":
+        print("\n Captain America leads the evacuation and saves lives!")
+        destruction += 20
+        morale +=20
+    elif choice1 == "C":
+        print("\n You called for a nuclear strike!...at what cost.")
+        destruction += 85
+        morale -= 50
+    else:
+        print("\n Panic set in and choices were made for you. Lives were lost.")
+        destruction += 40
+        morale -= 15
+
+    time.sleep(2)
+    next_scenario(destruction, morale)
+
+def next_scenario(destruction, morale):
+    print("\nSituation 2: The portal is still open and Chitauri reinforcements are pouring in.")
+    print("What now?")
+    print("A) Ask Tony to fly the nuke into the portal.")
+    print("B) Ask Hulk to smash the largest Leviathan.")
+    print("C) Try to negotiate with Loki.")
+
+    choice2 = input("Choose A, B, or C: ").strip().upper()
+
+    if choice2 == "A":
+        print("\n Tony grabs the nuke and heads toward the portal...")
+        destruction -= 30
+        morale += 30
+    elif choice2 == "B":
+        print("\n Hulk smashes the largest Leviathan, buying everyone some time")
+        destruction -= 10
+        morale += 10
+    elif choice2 == "C":
+        print("You thought you could negotiate with the God of Mischief? Ha!")
+        destruction += 30
+        morale -= 15
+    else:
+        print("Don't hesitate! It's costing you lives")
+        destruction += 40
+        morale -= 15
+
+    time.sleep(2)
+    ending(destruction, morale)
+
+def ending(destruction, morale):
+    print("Final Outcome:")
+    print(f"\nCity Destruction Level: {destruction} / 100")
+    print(f"Team Morale: {morale} / 100")
+
+    if destruction < 40 and morale > 70:
+        print("\n New York is saved and the Avengers stand tall. You're a hero!")
+    elif destruction < 70:
+        print("\n Partial victory. The city survives, but just barely.")
+    else:
+        print("\n You failed. The city is in ruins. Better luck next time.")
+
+    print("\nThanks for playing!")
+
+# Start the game
+intro()
