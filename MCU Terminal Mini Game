@@ -60,11 +60,11 @@ def next_scenario(destruction, morale):
         destruction -= 10
         morale += 10
     elif choice2 == "C":
-        print("You thought you could negotiate with the God of Mischief? Ha!")
+        print("\n You thought you could negotiate with the God of Mischief? Ha!")
         destruction += 30
         morale -= 15
     else:
-        print("Don't hesitate! It's costing you lives")
+        print("\n Don't hesitate! It's costing you lives")
         destruction += 40
         morale -= 15
 
